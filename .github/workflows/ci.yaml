@@ -1,0 +1,24 @@
+name: CI
+on:
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+      - '.editorconfig'
+      - '.gitignore'
+      - '.npmrc'
+      - '.eslintrc.cjs'
+      - '.eslintignore'
+      - '.prettier.config.cjs'
+      - '.vscode/**'
+
+jobs:
+  ci-node:
+    uses: maandr/github-actions/.github/workflows/ci-node.yaml@v2.0.0
+    with:
+      nodeVersion: '18.x'
+
+  ci-docker-image:
+    uses: maandr/github-actions/.github/workflows/ci-docker-image.yaml@v2.0.0
+    with:
+      file: './Dockerfile'
+      context: './'

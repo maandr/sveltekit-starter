@@ -1,0 +1,31 @@
+name: CD
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    tags: [v*]
+    paths-ignore:
+      - 'README.md'
+      - '.editorconfig'
+      - '.gitignore'
+      - '.npmrc'
+      - '.eslintrc.cjs'
+      - '.eslintignore'
+      - '.prettier.config.cjs'
+      - '.vscode/**'
+      - '.github/**'
+
+jobs:
+  generate-image-tags:
+    uses: maandr/github-actions/.github/workflows/cd-image-tags.yaml@v2.0.0
+    with:
+      image: ghcr.io/${{ github.repository }}
+
+  build-and-push-to-ghcr:
+    needs: generate-image-tags
+    uses: maandr/github-actions/.github/workflows/cd-ghcr.yaml@v2.0.0
+    with:
+      tags: ${{ needs.generate-image-tags.outputs.tags }}
+      labels: ${{ needs.generate-image-tags.outputs.labels }}
+    secrets:
+      GHCR_PAT: ${{ secrets.CONTAINER_REGISTRY_PAT }}

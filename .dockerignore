@@ -1,0 +1,7 @@
+.env
+.svelte-kit/**
+.vscode
+build/**
+node_modules/**
+pdf-exporter/**
+README.md

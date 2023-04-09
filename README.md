@@ -32,23 +32,23 @@ Here are the key tasks for using the project:
 
 ```
 # Install project dependencies
-yarn install
+pnpm install
 
 # Start the project with hot-reloading
-yarn dev
+pnpm dev
 
 # Bundle and build the application
-yarn build
+pnpm build
 
 # Perform static code analysis on the project's source code
-yarn lint
+pnpm lint
 
 # Run automated tests for the project
-yarn test
+pnpm test
 
 # Build a Docker container to serve the application
-yarn dockerBuild
+pnpm dockerBuild
 
 # Conduct a vulnerability check on the project's dependencies
-yarn audit
+pnpm audit
 ```

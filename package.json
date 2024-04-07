@@ -4,13 +4,13 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "svelte-kit sync && vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "vite dev",
     "dockerBuild": "docker build -t sveltekit-starter:dev .",
     "format": "prettier . --write .",
-    "lint": "prettier . --check . && eslint .",
+    "lint": "svelte-kit sync && prettier . --check . && eslint . && svelte-check --tsconfig ./tsconfig.json",
     "preview": "vite preview",
     "test": "vitest --run",
     "test:unit": "vitest"

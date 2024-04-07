@@ -1,28 +1,25 @@
-name: CI
+name: '🧪 CI'
 on:
   pull_request:
     paths-ignore:
       - 'README.md'
-      - '.editorconfig'
       - '.gitignore'
-      - '.npmrc'
-      - '.eslintrc.cjs'
-      - '.eslintignore'
-      - '.prettier.config.cjs'
       - '.vscode/**'
+      - '.github/dependabot.yaml'
+      - '.github/workflows/cd.yaml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  ci-node:
-    uses: maandr/github-actions/.github/workflows/ci-node.yaml@v2.0.2
+  node:
+    uses: maandr/github-actions/.github/workflows/ci-node.yaml@v3
     with:
-      nodeVersion: '21.7.x'
+      node_version: '21.7.x'
 
-  ci-docker-image:
-    uses: maandr/github-actions/.github/workflows/ci-docker-image.yaml@v2.0.2
+  docker:
+    uses: maandr/github-actions/.github/workflows/ci-docker-image.yaml@v3
     with:
       file: './Dockerfile'
       context: './'

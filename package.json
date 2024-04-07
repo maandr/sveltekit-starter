@@ -1,20 +1,19 @@
 {
   "name": "sveltekit-starter",
-  "description": "An opinionated project setup, designed for constructing web applications utilizing SvelteKit.",
-  "homepage": "https://github.com/maandr/sveltekit-starter",
   "version": "0.0.1",
   "private": false,
+  "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "dockerBuild": "docker build -t sveltekit-starter:dev .",
     "build": "vite build",
-    "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "vitest --run",
-    "test:unit": "vitest",
+    "dev": "vite dev",
+    "dockerBuild": "docker build -t sveltekit-starter:dev .",
+    "format": "prettier --plugin-search-dir . --write .",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "preview": "vite preview",
+    "test": "vitest --run",
+    "test:unit": "vitest"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.2.3",
@@ -37,6 +36,5 @@
     "typescript": "^5.0.3",
     "vite": "^4.2.1",
     "vitest": "^0.29.8"
-  },
-  "type": "module"
+  }
 }

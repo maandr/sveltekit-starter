@@ -23,7 +23,7 @@ jobs:
     needs: prepare
     uses: maandr/github-actions/.github/workflows/cd-ghcr.yaml@v3
     with:
-      tags: ${{ needs.generate-image-tags.outputs.tags }}
-      labels: ${{ needs.generate-image-tags.outputs.labels }}
+      tags: ${{ needs.prepare.outputs.tags }}
+      labels: ${{ needs.prepare.outputs.labels }}
     secrets:
       GHCR_PAT: ${{ secrets.CONTAINER_REGISTRY_PAT }}

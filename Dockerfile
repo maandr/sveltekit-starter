@@ -1,22 +1,28 @@
-## build application
-FROM node:18@sha256:33f306d574d22a441f6473d09c851763ff0d44459af682a2ff23b6ec8a06b03e AS build
+# compile application
+FROM node:21.7.1-alpine@sha256:577f8eb599858005100d84ef3fb6bd6582c1b6b17877a393cdae4bfc9935f068 AS builder
+
+WORKDIR /app
 
 RUN corepack enable
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
 COPY . .
-
 RUN pnpm build
+RUN pnpm prune --prod
 
-# bundle application and runtime dependencies
-FROM node:18-alpine@sha256:a3f2350bd3eb48525f801b57934300c11aa3610086b708854ab1c1045c018519 AS bundle
+# bundle application
+FROM node:21.7.1-alpine@sha256:577f8eb599858005100d84ef3fb6bd6582c1b6b17877a393cdae4bfc9935f068 AS bundle
 
-ENV PORT 80
+WORKDIR /app
+
+# copy compiled sources from builder layer
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/node_modules ./node_modules
+COPY package.json .
 
 EXPOSE 80
 
-COPY --from=build /node_modules ./node_modules
-COPY --from=build /build ./
-COPY --from=build /package.json /pnpm-lock.yaml ./
+ENV NODE_ENV=production
+ENV PORT 80
 
-ENTRYPOINT [ "node", "." ]
+CMD [ "node", "build" ]

@@ -57,7 +57,7 @@ devDependencies:
     specifier: 2.6.2
     version: 2.6.2
   typescript:
-    specifier: ^5.0.3
+    specifier: 5.4.4
     version: 5.4.4
   vite:
     specifier: ^4.2.1

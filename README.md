@@ -1,6 +1,6 @@
 # sveltekit-starter
 
-An opinionated project setup, designed for constructing web applications utilizing [SvelteKit](https://kit.svelte.dev/).
+A personalized project skeleton, designed for constructing web applications utilizing [SvelteKit](https://kit.svelte.dev/).
 
 It includes various pre-made configurations, including:
 
@@ -10,6 +10,7 @@ It includes various pre-made configurations, including:
 - Prettier
 - Eslint
 - Editorconfig
+- Docker
 
 ## Building
 
@@ -17,7 +18,7 @@ It includes various pre-made configurations, including:
 
 This project targets a containerized runtime environment. The project provides a command `dockerBuild` that builds the application and bakes it into a docker image.
 
-#### Workflows
+### Workflows
 
 GitHub Action workflows are preconfigured as follows:
 
@@ -28,29 +29,19 @@ GitHub Action workflows are preconfigured as follows:
 >
 > - `CONTAINER_REGISTRY_PAT`: Personal Access Token for GitHub Container Registry.
 
-## Usage
+## Development
 
-Here are the key tasks for using the project:
+To run the project on your local machine, you'll need [Node.js](https://nodejs.org/en/) (v21.x) installed. Begin by installing project dependencies using the following command:
 
-```
-# Install project dependencies
+```bash
 pnpm install
-
-# Start the project with hot-reloading
-pnpm dev
-
-# Bundle and build the application
-pnpm build
-
-# Perform static code analysis on the project's source code
-pnpm lint
-
-# Run automated tests for the project
-pnpm test
-
-# Build a Docker container to serve the application
-pnpm dockerBuild
-
-# Conduct a vulnerability check on the project's dependencies
-pnpm audit
 ```
+
+To launch the project with hot-reloading, use:
+
+```bash
+pnpm dev --open
+```
+
+Before committing any changes, you might want to verify code quality and formatting with `pnpm check`, and execute automated tests with `pnpm test`.
+

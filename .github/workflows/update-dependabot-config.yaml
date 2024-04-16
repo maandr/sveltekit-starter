@@ -1,0 +1,23 @@
+name: '🤖 Update Dependabot Config'
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/Dockefile'
+      - '**/package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-update-dependabot-config
+  cancel-in-progress: true
+
+jobs:
+  generate-dependabot-config:
+    uses: maandr/github-actions/.github/workflows/gh-dependabot-config.yaml@v3
+    with:
+      schedule: weekly

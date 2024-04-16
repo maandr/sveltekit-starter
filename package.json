@@ -8,7 +8,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "vite dev",
-    "dockerBuild": "docker build -t sveltekit-starter:dev .",
+    "dockerBuild": "docker build -t ghcr.io/maandr/sveltekit-starter:dev .",
     "format": "prettier . --write .",
     "lint": "svelte-kit sync && prettier . --check . && eslint . && svelte-check --tsconfig ./tsconfig.json",
     "preview": "vite preview",

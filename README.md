@@ -44,4 +44,3 @@ pnpm dev --open
 ```
 
 Before committing any changes, you might want to verify code quality and formatting with `pnpm check`, and execute automated tests with `pnpm test`.
-

@@ -51,8 +51,8 @@ importers:
         specifier: 3.2.3
         version: 3.2.3(prettier@3.2.5)(svelte@4.2.19)
       prettier-plugin-tailwindcss:
-        specifier: 0.5.13
-        version: 0.5.13(prettier-plugin-svelte@3.2.3(prettier@3.2.5)(svelte@4.2.19))(prettier@3.2.5)
+        specifier: 0.6.6
+        version: 0.6.6(prettier-plugin-svelte@3.2.3(prettier@3.2.5)(svelte@4.2.19))(prettier@3.2.5)
       svelte:
         specifier: 4.2.19
         version: 4.2.19
@@ -1365,8 +1365,8 @@ packages:
       prettier: ^3.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
 
-  prettier-plugin-tailwindcss@0.5.13:
-    resolution: {integrity: sha512-2tPWHCFNC+WRjAC4SIWQNSOdcL1NNkydXim8w7TDqlZi+/ulZYz2OouAI6qMtkggnPt7lGamboj6LcTMwcCvoQ==}
+  prettier-plugin-tailwindcss@0.6.6:
+    resolution: {integrity: sha512-OPva5S7WAsPLEsOuOWXATi13QrCKACCiIonFgIR6V4lYv4QLp++UXVhZSzRbZxXGimkQtQT86CC6fQqTOybGng==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -1380,6 +1380,7 @@ packages:
       prettier-plugin-import-sort: '*'
       prettier-plugin-jsdoc: '*'
       prettier-plugin-marko: '*'
+      prettier-plugin-multiline-arrays: '*'
       prettier-plugin-organize-attributes: '*'
       prettier-plugin-organize-imports: '*'
       prettier-plugin-sort-imports: '*'
@@ -1405,6 +1406,8 @@ packages:
       prettier-plugin-jsdoc:
         optional: true
       prettier-plugin-marko:
+        optional: true
+      prettier-plugin-multiline-arrays:
         optional: true
       prettier-plugin-organize-attributes:
         optional: true
@@ -3014,7 +3017,7 @@ snapshots:
       prettier: 3.2.5
       svelte: 4.2.19
 
-  prettier-plugin-tailwindcss@0.5.13(prettier-plugin-svelte@3.2.3(prettier@3.2.5)(svelte@4.2.19))(prettier@3.2.5):
+  prettier-plugin-tailwindcss@0.6.6(prettier-plugin-svelte@3.2.3(prettier@3.2.5)(svelte@4.2.19))(prettier@3.2.5):
     dependencies:
       prettier: 3.2.5
     optionalDependencies:

@@ -1,5 +1,5 @@
 # compile application
-FROM node:23.3.0-alpine@sha256:d03e75e7ba1385c2944f4cc374eb5abe0715234f87da5121dbd64f7262ad10df AS builder
+FROM node:23.8.0-alpine@sha256:0a29d8a047149079bf48dab598f287815e39867d547e8f3935cfdece0a4379cc AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN pnpm build
 RUN pnpm prune --prod
 
 # bundle application
-FROM node:23.3.0-alpine@sha256:d03e75e7ba1385c2944f4cc374eb5abe0715234f87da5121dbd64f7262ad10df AS bundle
+FROM node:23.8.0-alpine@sha256:0a29d8a047149079bf48dab598f287815e39867d547e8f3935cfdece0a4379cc AS bundle
 
 WORKDIR /app
 
